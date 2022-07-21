@@ -1,17 +1,48 @@
 <?php
 require_once('includes/dbcontroller.php');
 $db_handle = new DBController();
+
+function productCode($length)
+{
+    $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
+
 if (isset($_POST['submit'])) {
 
-    $code = '2NCCMAO3';
+    $code =  $db_handle->checkValue(productCode(8));
+
+    $date = $db_handle->checkValue($_POST['date']);
+
+    $time = $db_handle->checkValue($_POST['time']);
+
+    $seat_number = $db_handle->checkValue($_POST['seat_number']);
+
+    $name = $db_handle->checkValue($_POST['name']);
+
+    $number = $db_handle->checkValue($_POST['number']);
+
+    $email = $db_handle->checkValue($_POST['email']);
+
+    $occasion = $db_handle->checkValue($_POST['occasion']);
+
+    $alergies = $db_handle->checkValue($_POST['alergies']);
 
     $url = $_SERVER['SERVER_NAME'].'/Order-Detail?code=' . $code;
 
-    $email_to = $_POST['email'];
+    $email_to = $email;
     $subject = 'Email From Food Island';
-    $userName = 'Test User';
+    $userName = $name;
     $l = strtolower($userName);
     $u = ucfirst($l);
+
+
+    $insert = $db_handle->insertQuery("INSERT INTO `order_detail`(`name`, `code`, `date`, `time`, `seat_number`, `number`, `email`, `occasion`, `alergies`) VALUES ('$name','$code','$time','$email','$seat_number','$number','$email','$occasion','$alergies')");
 
     $headers = "From: Food Island <" . $db_handle->from_email() . ">\r\n";
     $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
@@ -45,7 +76,8 @@ if (isset($_POST['submit'])) {
 
     if (mail($email_to, $subject, $messege, $headers)) {
         echo "<script>
-                window.location.href='index.php';
+                document.cookie = 'alert = 1;';
+                window.location.href='/';
                 </script>";
     }
 }

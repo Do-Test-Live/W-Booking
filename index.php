@@ -29,6 +29,9 @@
     <link rel="shortcut icon" href="favicon.png">
 
     <link rel="stylesheet" href="css/style.css"/>
+
+    <!-- SweetAlert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="preload">
 
