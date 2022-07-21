@@ -116,9 +116,14 @@
                 <span>~ Check out our place ~</span>
             </div>
             <div class="row mb-3">
+
                 <div class="col-md-4">
                     <h5>
                         <?php
+                        if (!isset($_GET['date'])) {
+                            header('location:Home');
+                        }
+
                         if (isset($_GET['date'])) {
                             echo $_GET['date'];
                         }
