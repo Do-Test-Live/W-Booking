@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Home Page v3</title>
+    <title>Booking Site</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="fonts/linearicons/style.css">
@@ -153,15 +153,17 @@
                          data-visibility='["on", "off", "off", "off", "off"]'>
 
                         <div class="slideshow-form">
-                            <form method="get">
+                            <form method="get" action="reservation.php">
                                 <div class="inner">
                                     <div class="form-holder">
                                         <select class="form-control">
-                                            <option value="1 people">1 people</option>
-                                            <option value="2 people">2 people</option>
-                                            <option value="3 people">3 people</option>
-                                            <option value="4 people">4 people</option>
-                                            <option value="5 people">5 people</option>
+                                            <?php
+                                            for ($i = 1; $i < 21; $i++) {
+                                                ?>
+                                                    <option value="<?php echo $i.' Seat(s)' ?>"><?php echo $i.' Seat(s)' ?></option>
+                                                <?php
+                                            }
+                                            ?>
                                         </select>
                                         <span class="lnr lnr-chevron-down"></span>
                                     </div>
@@ -175,7 +177,7 @@
                                         <span class="lnr lnr-clock big"></span>
                                     </div>
                                     <button class="au-btn tp-resizeme" data-fontsize="['18', '18', '18', '18', '18']">
-                                        Book now
+                                        Continue
                                     </button>
                                 </div>
                             </form>
@@ -254,20 +256,22 @@
                          data-visibility='["on", "off", "off", "off", "off"]'>
 
                         <div class="slideshow-form">
-                            <form method="get">
+                            <form method="get" action="reservation.php">
                                 <div class="inner">
                                     <div class="form-holder">
                                         <select class="form-control">
-                                            <option value="1 people">1 people</option>
-                                            <option value="2 people">2 people</option>
-                                            <option value="3 people">3 people</option>
-                                            <option value="4 people">4 people</option>
-                                            <option value="5 people">5 people</option>
+                                            <?php
+                                            for ($i = 1; $i < 21; $i++) {
+                                                ?>
+                                                <option value="<?php echo $i.' Seat(s)' ?>"><?php echo $i.' Seat(s)' ?></option>
+                                                <?php
+                                            }
+                                            ?>
                                         </select>
                                         <span class="lnr lnr-chevron-down"></span>
                                     </div>
                                     <div class="form-holder">
-                                        <input type="text" class="form-control datepicker-here" data-language='en'
+                                        <input type="date" class="form-control datepicker-here" data-language='en'
                                                data-date-format="dd - mm - yyyy" placeholder="Date">
                                         <span class="lnr lnr-calendar-full big"></span>
                                     </div>
@@ -276,7 +280,7 @@
                                         <span class="lnr lnr-clock big"></span>
                                     </div>
                                     <button class="au-btn tp-resizeme" data-fontsize="['18', '18', '18', '18', '18']">
-                                        Book now
+                                        Continue
                                     </button>
                                 </div>
                             </form>
@@ -339,15 +343,17 @@
                          data-visibility='["on", "off", "off", "off", "off"]'>
 
                         <div class="slideshow-form">
-                            <form method="get">
+                            <form method="get" action="reservation.php">
                                 <div class="inner">
                                     <div class="form-holder">
                                         <select class="form-control">
-                                            <option value="1 people">1 people</option>
-                                            <option value="2 people">2 people</option>
-                                            <option value="3 people">3 people</option>
-                                            <option value="4 people">4 people</option>
-                                            <option value="5 people">5 people</option>
+                                            <?php
+                                            for ($i = 1; $i < 21; $i++) {
+                                                ?>
+                                                <option value="<?php echo $i.' Seat(s)' ?>"><?php echo $i.' Seat(s)' ?></option>
+                                                <?php
+                                            }
+                                            ?>
                                         </select>
                                         <span class="lnr lnr-chevron-down"></span>
                                     </div>
@@ -361,7 +367,7 @@
                                         <span class="lnr lnr-clock big"></span>
                                     </div>
                                     <button class="au-btn tp-resizeme" data-fontsize="['18', '18', '18', '18', '18']">
-                                        Book now
+                                        Continue
                                     </button>
                                 </div>
                             </form>
@@ -402,11 +408,13 @@
                 <div class="inner">
                     <div class="form-holder">
                         <select class="form-control">
-                            <option value="1 people">1 people</option>
-                            <option value="2 people">2 people</option>
-                            <option value="3 people">3 people</option>
-                            <option value="4 people">4 people</option>
-                            <option value="5 people">5 people</option>
+                            <?php
+                            for ($i = 1; $i < 21; $i++) {
+                                ?>
+                                <option value="<?php echo $i.' Seat(s)' ?>"><?php echo $i.' Seat(s)' ?></option>
+                                <?php
+                            }
+                            ?>
                         </select>
                         <span class="lnr lnr-chevron-down"></span>
                     </div>
