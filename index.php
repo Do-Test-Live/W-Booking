@@ -153,14 +153,14 @@
                          data-visibility='["on", "off", "off", "off", "off"]'>
 
                         <div class="slideshow-form">
-                            <form method="get" action="reservation.php">
+                            <form method="get" action="Reservation">
                                 <div class="inner">
                                     <div class="form-holder">
-                                        <select class="form-control">
+                                        <select class="form-control" name="seat_number">
                                             <?php
                                             for ($i = 1; $i < 21; $i++) {
                                                 ?>
-                                                    <option value="<?php echo $i.' Seat(s)' ?>"><?php echo $i.' Seat(s)' ?></option>
+                                                <option value="<?php echo $i; ?>"><?php echo $i.' Seat(s)' ?></option>
                                                 <?php
                                             }
                                             ?>
@@ -169,14 +169,14 @@
                                     </div>
                                     <div class="form-holder">
                                         <input type="text" class="form-control datepicker-here" data-language='en'
-                                               data-date-format="dd - mm - yyyy" placeholder="Date">
+                                               data-date-format="dd - mm - yyyy" placeholder="Date" name="date">
                                         <span class="lnr lnr-calendar-full big"></span>
                                     </div>
                                     <div class="form-holder">
-                                        <input type="text" class="form-control time-picker" placeholder="Time">
+                                        <input type="text" class="form-control time-picker" placeholder="Time" name="time">
                                         <span class="lnr lnr-clock big"></span>
                                     </div>
-                                    <button class="au-btn tp-resizeme" data-fontsize="['18', '18', '18', '18', '18']">
+                                    <button class="au-btn tp-resizeme" data-fontsize="['18', '18', '18', '18', '18']" name="submit">
                                         Continue
                                     </button>
                                 </div>
@@ -256,14 +256,14 @@
                          data-visibility='["on", "off", "off", "off", "off"]'>
 
                         <div class="slideshow-form">
-                            <form method="get" action="reservation.php">
+                            <form method="get" action="Reservation">
                                 <div class="inner">
                                     <div class="form-holder">
-                                        <select class="form-control">
+                                        <select class="form-control" name="seat_number">
                                             <?php
                                             for ($i = 1; $i < 21; $i++) {
                                                 ?>
-                                                <option value="<?php echo $i.' Seat(s)' ?>"><?php echo $i.' Seat(s)' ?></option>
+                                                <option value="<?php echo $i; ?>"><?php echo $i.' Seat(s)' ?></option>
                                                 <?php
                                             }
                                             ?>
@@ -271,15 +271,15 @@
                                         <span class="lnr lnr-chevron-down"></span>
                                     </div>
                                     <div class="form-holder">
-                                        <input type="date" class="form-control datepicker-here" data-language='en'
-                                               data-date-format="dd - mm - yyyy" placeholder="Date">
+                                        <input type="text" class="form-control datepicker-here" data-language='en'
+                                               data-date-format="dd - mm - yyyy" placeholder="Date" name="date">
                                         <span class="lnr lnr-calendar-full big"></span>
                                     </div>
                                     <div class="form-holder">
-                                        <input type="text" class="form-control time-picker" placeholder="Time">
+                                        <input type="text" class="form-control time-picker" placeholder="Time" name="time">
                                         <span class="lnr lnr-clock big"></span>
                                     </div>
-                                    <button class="au-btn tp-resizeme" data-fontsize="['18', '18', '18', '18', '18']">
+                                    <button class="au-btn tp-resizeme" data-fontsize="['18', '18', '18', '18', '18']" name="submit">
                                         Continue
                                     </button>
                                 </div>
@@ -343,14 +343,14 @@
                          data-visibility='["on", "off", "off", "off", "off"]'>
 
                         <div class="slideshow-form">
-                            <form method="get" action="reservation.php">
+                            <form method="get" action="Reservation">
                                 <div class="inner">
                                     <div class="form-holder">
-                                        <select class="form-control">
+                                        <select class="form-control" name="seat_number">
                                             <?php
                                             for ($i = 1; $i < 21; $i++) {
                                                 ?>
-                                                <option value="<?php echo $i.' Seat(s)' ?>"><?php echo $i.' Seat(s)' ?></option>
+                                                <option value="<?php echo $i; ?>"><?php echo $i.' Seat(s)' ?></option>
                                                 <?php
                                             }
                                             ?>
@@ -359,14 +359,14 @@
                                     </div>
                                     <div class="form-holder">
                                         <input type="text" class="form-control datepicker-here" data-language='en'
-                                               data-date-format="dd - mm - yyyy" placeholder="Date">
+                                               data-date-format="dd - mm - yyyy" placeholder="Date" name="date">
                                         <span class="lnr lnr-calendar-full big"></span>
                                     </div>
                                     <div class="form-holder">
-                                        <input type="text" class="form-control time-picker" placeholder="Time">
+                                        <input type="text" class="form-control time-picker" placeholder="Time" name="time">
                                         <span class="lnr lnr-clock big"></span>
                                     </div>
-                                    <button class="au-btn tp-resizeme" data-fontsize="['18', '18', '18', '18', '18']">
+                                    <button class="au-btn tp-resizeme" data-fontsize="['18', '18', '18', '18', '18']" name="submit">
                                         Continue
                                     </button>
                                 </div>
@@ -404,14 +404,14 @@
 
     <div class="slideshow-form on-mobile">
         <div class="container">
-            <form method="get">
+            <form method="get" action="Reservation">
                 <div class="inner">
                     <div class="form-holder">
-                        <select class="form-control">
+                        <select class="form-control" name="seat_number">
                             <?php
                             for ($i = 1; $i < 21; $i++) {
                                 ?>
-                                <option value="<?php echo $i.' Seat(s)' ?>"><?php echo $i.' Seat(s)' ?></option>
+                                <option value="<?php echo $i; ?>"><?php echo $i.' Seat(s)' ?></option>
                                 <?php
                             }
                             ?>
@@ -420,14 +420,14 @@
                     </div>
                     <div class="form-holder">
                         <input type="text" class="form-control datepicker-here" data-language='en'
-                               data-date-format="dd - mm - yyyy" placeholder="Date">
+                               data-date-format="dd - mm - yyyy" placeholder="Date" name="date">
                         <span class="lnr lnr-calendar-full big"></span>
                     </div>
                     <div class="form-holder">
-                        <input type="text" class="form-control time-picker" placeholder="Time">
+                        <input type="text" class="form-control time-picker" placeholder="Time" name="time">
                         <span class="lnr lnr-clock big"></span>
                     </div>
-                    <button class="au-btn tp-resizeme" data-fontsize="['18', '18', '18', '18', '18']">Book now</button>
+                    <button class="au-btn tp-resizeme" data-fontsize="['18', '18', '18', '18', '18']" name="submit">Book now</button>
                 </div>
             </form>
         </div>
@@ -437,7 +437,7 @@
 <footer>
     <div class="ft-bot">
         <div class="container">
-            @ 2018 DesignGalaxy8. Get The Theme
+            Copyright 2022 All Right Reserved By Food Island
         </div>
     </div>
 </footer>
