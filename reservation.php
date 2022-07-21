@@ -221,8 +221,6 @@
 
 <script src="vendor/owl-carousel/js/owl.carousel.min.js"></script>
 
-<script src="js/sweetalert.min.js"></script>
-
 <script src="vendor/hcmobilenav/hc-mobile-nav.js"></script>
 
 <script src="vendor/jquery-ui/jquery-ui.min.js"></script>
