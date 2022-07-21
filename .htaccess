@@ -2,7 +2,7 @@ RewriteEngine on
 
 RewriteRule ^Home index.php [L]
 
-RewriteRule ^Reservation index.php [L]
+RewriteRule ^Reservation reservation.php [L]
 
 RewriteRule ^Order-Detail order-details.php [L]
 

@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
     $u = ucfirst($l);
 
 
-    $insert = $db_handle->insertQuery("INSERT INTO `order_detail`(`name`, `code`, `date`, `time`, `seat_number`, `number`, `email`, `occasion`, `alergies`) VALUES ('$name','$code','$time','$email','$seat_number','$number','$email','$occasion','$alergies')");
+    $insert = $db_handle->insertQuery("INSERT INTO `order_detail`(`name`, `code`, `date`, `time`, `seat_number`, `number`, `email`, `occasion`, `alergies`) VALUES ('$name','$code','$date','$time','$seat_number','$number','$email','$occasion','$alergies')");
 
     $headers = "From: Food Island <" . $db_handle->from_email() . ">\r\n";
     $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
