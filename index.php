@@ -379,7 +379,7 @@
 <footer>
     <div class="ft-bot">
         <div class="container">
-            Copyright 2022 All Right Reserved By -
+            Copyright 2022 All Right Reserved By Restaurants
         </div>
     </div>
 </footer>
