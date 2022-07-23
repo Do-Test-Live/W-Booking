@@ -21,3 +21,5 @@
 <script src="public/js/plugins-init/widgets-script-init.js" type="text/javascript"></script>
 <script src="public/vendor/toastr/js/toastr.min.js" type="text/javascript"></script>
 <script src="public/js/plugins-init/toastr-init.js" type="text/javascript"></script>
+<script src="public/js/jquery.min.js"></script>
+<script src="public/js/bootstrap-tagsinput.min.js"></script>

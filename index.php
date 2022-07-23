@@ -140,13 +140,11 @@
                                         <span class="lnr lnr-chevron-down"></span>
                                     </div>
                                     <div class="form-holder">
-                                        <input type="text" class="form-control datepicker-here" data-language='en'
+                                        <input type="date" class="form-control" data-language='en'
                                                data-date-format="dd - mm - yyyy" placeholder="Date" name="date">
-                                        <span class="lnr lnr-calendar-full big"></span>
                                     </div>
                                     <div class="form-holder">
-                                        <input type="text" class="form-control time-picker" placeholder="Time" name="time">
-                                        <span class="lnr lnr-clock big"></span>
+                                        <input type="time" class="form-control" placeholder="Time" name="time">
                                     </div>
                                     <button class="au-btn tp-resizeme" data-fontsize="['18', '18', '18', '18', '18']" name="submit">
                                         Continue

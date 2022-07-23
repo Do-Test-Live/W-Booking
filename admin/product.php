@@ -12,6 +12,11 @@ $db_handle = new DBController();
     <title>Product Admin | Food Island</title>
     <meta name="description" content="Some description for the page"/>
     <?php require_once('include/css.php'); ?>
+    <style>
+        .bootstrap-tagsinput{
+            width: 100% !important;
+        }
+    </style>
 </head>
 <body>
 <div id="preloader">
@@ -85,17 +90,21 @@ $db_handle = new DBController();
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
                                                 <label>Availability Time</label>
-                                                <input type="text" class="form-control" name="time"
-                                                       placeholder="10:00 AM"
-                                                       value="" required/>
+                                                <div>
+                                                    <input type="text" class="form-control" name="time"
+                                                           placeholder="10:00 AM"
+                                                           value="10:00 AM, 3:00 PM" data-role="tagsinput" required/>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
                                                 <label>Product Price</label>
-                                                <input type="text" class="form-control" name="price"
-                                                       placeholder="5.99"
-                                                       value="" required/>
+                                                <div>
+                                                    <input type="text" class="form-control" name="price"
+                                                           placeholder="5.99"
+                                                           value="7.99, 8.55" data-role="tagsinput" required/>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-row">
@@ -167,17 +176,21 @@ $db_handle = new DBController();
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
                                                 <label>Availability Time</label>
-                                                <input type="text" class="form-control" name="time"
-                                                       placeholder="10:00 AM"
-                                                       value="<?php echo $data[0]["time"]; ?>" required/>
+                                                <div>
+                                                    <input type="text" class="form-control" name="time"
+                                                           placeholder="10:00 AM"
+                                                           value="<?php echo $data[0]["time"]; ?>" data-role="tagsinput" required/>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
                                                 <label>Product Price</label>
-                                                <input type="text" class="form-control" name="price"
-                                                       placeholder="5.99"
-                                                       value="<?php echo $data[0]["price"]; ?>" required/>
+                                                <div>
+                                                    <input type="text" class="form-control" name="price"
+                                                           placeholder="5.99"
+                                                           value="<?php echo $data[0]["price"]; ?>" data-role="tagsinput" required/>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-row">
