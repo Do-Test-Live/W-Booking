@@ -1,5 +1,5 @@
 <?php
-require_once('includes/dbcontroller.php');
+require_once('include/dbcontroller.php');
 $db_handle = new DBController();
 ?>
 <!DOCTYPE html>
@@ -51,13 +51,13 @@ $db_handle = new DBController();
 
     <nav class="navbar-desktop">
         <div class="left">
-            <a href="index.php" class="logo">
+            <a href="Home" class="logo">
                 <img src="images/logo.png" alt="Royate">
             </a>
         </div>
         <ul>
             <li class="has-children">
-                <a href="index.php">
+                <a href="Home">
                     Home
                 </a>
             </li>
@@ -66,7 +66,7 @@ $db_handle = new DBController();
             <div class="action">
                 <div class="notify">
                     <div class="action align-items-center">
-                        <a href="index.php" class="au-btn au-btn--hover has-bd">Booking now</a>
+                        <a href="Home" class="au-btn au-btn--hover has-bd">Booking now</a>
                     </div>
                 </div>
             </div>
@@ -83,7 +83,7 @@ $db_handle = new DBController();
                         <span></span>
                     </a>
                 </div>
-                <a href="index.php" class="logo">
+                <a href="Home" class="logo">
                     <img src="images/logo.png" alt="Royate">
                 </a>
                 <div class="right">
@@ -97,7 +97,7 @@ $db_handle = new DBController();
         <nav id="main-nav">
             <ul>
                 <li>
-                    <a href="index.php" target="_blank">Home</a>
+                    <a href="Home" target="_blank">Home</a>
                 </li>
             </ul>
         </nav>
