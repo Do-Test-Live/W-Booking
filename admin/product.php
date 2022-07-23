@@ -84,28 +84,10 @@ $db_handle = new DBController();
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
-                                                <label>Category</label>
-                                                <div class="dropdown bootstrap-select form-control">
-                                                    <select class="form-control" id="category_id" name="category_id"
-                                                            required>
-                                                        <option value="0">
-                                                            Select Category
-                                                        </option>
-                                                        <?php
-                                                        $category_data = $db_handle->runQuery("SELECT * FROM category order by id asc");
-                                                        $row_count = $db_handle->numRows("SELECT * FROM category order by id desc");
-
-                                                        for ($i = 0; $i < $row_count; $i++) {
-                                                            ?>
-
-                                                            <option value="<?php echo $category_data[$i]["id"]; ?>">
-                                                                <?php echo $category_data[$i]["name"]; ?>
-                                                            </option>
-                                                            <?php
-                                                        }
-                                                        ?>
-                                                    </select>
-                                                </div>
+                                                <label>Availability Time</label>
+                                                <input type="text" class="form-control" name="time"
+                                                       placeholder="10:00 AM"
+                                                       value="" required/>
                                             </div>
                                         </div>
                                         <div class="form-row">
@@ -176,36 +158,18 @@ $db_handle = new DBController();
                                                 <label>Product Name</label>
                                                 <input type="text" class="form-control" name="p_name"
                                                        placeholder="Name..."
-                                                       value="<?php $data = $db_handle->runQuery("SELECT * FROM category as c,tblproduct as t where c.id=t.category_id and t.id={$_GET['product_id']}");
-                                                       echo $data[0]["p_name"]; ?>"/>
+                                                       value="<?php $data = $db_handle->runQuery("SELECT * FROM tblproduct as t where t.id={$_GET['product_id']}");
+                                                       echo $data[0]["name"]; ?>"/>
                                                 <input type="hidden" name="id"
                                                        value="<?php echo $data[0]["id"]; ?>"/>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
-                                                <label>Category</label>
-                                                <div class="dropdown bootstrap-select form-control">
-                                                    <select class="form-control" id="category_id" name="category_id"
-                                                            required>
-                                                        <option value="<?php echo $data[0]["category_id"]; ?>" selected>
-                                                            <?php echo $data[0]["name"]; ?>
-                                                        </option>
-                                                        <?php
-                                                        $category_data = $db_handle->runQuery("SELECT * FROM category order by id desc");
-                                                        $row_count = $db_handle->numRows("SELECT * FROM category order by id desc");
-
-                                                        for ($i = 0; $i < $row_count; $i++) {
-                                                            ?>
-
-                                                            <option value="<?php echo $category_data[$i]["id"]; ?>">
-                                                                <?php echo $category_data[$i]["name"]; ?>
-                                                            </option>
-                                                            <?php
-                                                        }
-                                                        ?>
-                                                    </select>
-                                                </div>
+                                                <label>Availability Time</label>
+                                                <input type="text" class="form-control" name="time"
+                                                       placeholder="10:00 AM"
+                                                       value="<?php echo $data[0]["time"]; ?>" required/>
                                             </div>
                                         </div>
                                         <div class="form-row">
@@ -311,8 +275,8 @@ $db_handle = new DBController();
                                         <tr>
                                             <th>SL</th>
                                             <th>Name</th>
-                                            <th>Category</th>
                                             <th>Code</th>
+                                            <th>Time</th>
                                             <th>Price</th>
                                             <th>Menu Image</th>
                                             <th>Shop Image</th>
@@ -324,16 +288,16 @@ $db_handle = new DBController();
                                         </thead>
                                         <tbody>
                                         <?php
-                                        $product_data = $db_handle->runQuery("SELECT * FROM category as c,tblproduct as t where c.id=t.category_id order by t.id desc");
-                                        $row_count = $db_handle->numRows("SELECT * FROM tblproduct as t, category as c where c.id=t.category_id order by t.id desc");
+                                        $product_data = $db_handle->runQuery("SELECT * FROM tblproduct as t order by t.id desc");
+                                        $row_count = $db_handle->numRows("SELECT * FROM tblproduct as t order by t.id desc");
 
                                         for ($i = 0; $i < $row_count; $i++) {
                                             ?>
                                             <tr>
                                                 <td><?php echo $i + 1; ?></td>
-                                                <td><?php echo $product_data[$i]["p_name"]; ?></td>
                                                 <td><?php echo $product_data[$i]["name"]; ?></td>
                                                 <td><?php echo $product_data[$i]["code"]; ?></td>
+                                                <td><?php echo $product_data[$i]["time"]; ?></td>
                                                 <td><?php echo $product_data[$i]["price"]; ?></td>
                                                 <td><a href="../<?php echo $product_data[$i]["menu_image"]; ?>"
                                                        target="_blank">m_i</a></td>

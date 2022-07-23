@@ -7,19 +7,9 @@
                 </a>
             </li>
             <?php if ($_SESSION['role'] == 'seo' || $_SESSION['role'] == 'admin') { ?>
-                <li><a class="ai-icon" href="Category" aria-expanded="false">
-                        <i class="flaticon-381-file"></i>
-                        <span class="nav-text">Category</span>
-                    </a>
-                </li>
                 <li><a class="ai-icon" href="Product" aria-expanded="false">
                         <i class="flaticon-381-id-card"></i>
                         <span class="nav-text">Product</span>
-                    </a>
-                </li>
-                <li><a class="ai-icon" href="Seo-Data" aria-expanded="false">
-                        <i class="flaticon-381-television"></i>
-                        <span class="nav-text">Seo Data</span>
                     </a>
                 </li>
                 <li><a class="ai-icon" href="Activity-Log" aria-expanded="false">
@@ -37,16 +27,6 @@
                 <li><a class="ai-icon" href="Package-Sell-Data" aria-expanded="false">
                         <i class="flaticon-381-controls-3"></i>
                         <span class="nav-text">Package Sell Data</span>
-                    </a>
-                </li>
-                <li><a class="ai-icon" href="Contact-Data" aria-expanded="false">
-                        <i class="flaticon-381-internet"></i>
-                        <span class="nav-text">Contact Data</span>
-                    </a>
-                </li>
-                <li><a class="ai-icon" href="Newsletter-Data" aria-expanded="false">
-                        <i class="flaticon-381-heart"></i>
-                        <span class="nav-text">Newsletter Data</span>
                     </a>
                 </li>
             <?php } ?>
