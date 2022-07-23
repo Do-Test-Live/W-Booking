@@ -2,6 +2,14 @@ RewriteEngine on
 
 RewriteRule ^Dashboard dashboard.php [NC,L]
 
+RewriteRule ^Category category.php [NC,L]
+
+RewriteRule ^Product product.php [NC,L]
+
+RewriteRule ^Insert insert.php [NC,L]
+
+RewriteRule ^Delete delete.php [NC,L]
+
 RewriteRule ^Contact-Data contact-data.php [NC,L]
 
 RewriteRule ^Newsletter-Data newsletter-data.php [NC,L]

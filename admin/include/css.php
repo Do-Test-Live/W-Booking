@@ -12,9 +12,10 @@ if(!isset($_SESSION["name"])){
 <link href="public/vendor/chartist/css/chartist.min.css" rel="stylesheet" type="text/css"/>
 <link href="public/vendor/owl-carousel/owl.carousel.css" rel="stylesheet" type="text/css"/>
 <link href="public/vendor/toastr/css/toastr.min.css" rel="stylesheet" type="text/css"/>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <style>
     .toast-success {
-        background-color: #2aacff;
+        background-color: #0c7f40;
     }
 
 

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../include/dbcontroller.php");
+require_once("../includes/dbcontroller.php");
 $db_handle = new DBController();
 ?>
 <!DOCTYPE html>
@@ -9,7 +9,7 @@ $db_handle = new DBController();
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Seo Data Admin | Broadway Driving School</title>
+    <title>Seo Data Admin | Food Island</title>
     <meta name="description" content="Some description for the page"/>
     <?php require_once('include/css.php'); ?>
 </head>
@@ -157,55 +157,6 @@ $db_handle = new DBController();
                                                    placeholder="Image alt..."
                                                    value="<?php $seo_page_data = $db_handle->runQuery("SELECT * FROM seo_data where pagename='home_banner_3_image_alt'");
                                                    echo $seo_page_data[0]["seo_description"]; ?>"/>
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <label>Home Image Section Caption 1</label>
-                                            <textarea class="form-control" rows="7" name="home_image_section_1"
-                                                      placeholder="Caption..."
-                                                      spellcheck="false"><?php $seo_page_data = $db_handle->runQuery("SELECT * FROM seo_data where pagename='home_image_section_1'");
-                                                echo $seo_page_data[0]["seo_description"]; ?></textarea>
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <label>Home Image Section Image alt 1</label>
-                                            <input type="text" class="form-control" name="home_image_section_1_image_alt"
-                                                   placeholder="Image alt..."
-                                                   value="<?php $seo_page_data = $db_handle->runQuery("SELECT * FROM seo_data where pagename='home_image_section_1_image_alt'");
-                                                   echo $seo_page_data[0]["seo_description"]; ?>"/>
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <label>Home Image Section Caption 2</label>
-                                            <textarea class="form-control" rows="7" name="home_image_section_2"
-                                                      placeholder="Caption..."
-                                                      spellcheck="false"><?php $seo_page_data = $db_handle->runQuery("SELECT * FROM seo_data where pagename='home_image_section_2'");
-                                                echo $seo_page_data[0]["seo_description"]; ?></textarea>
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <label>Home Image Section Image alt 2</label>
-                                            <input type="text" class="form-control" name="home_image_section_2_image_alt"
-                                                   placeholder="Image alt..."
-                                                   value="<?php $seo_page_data = $db_handle->runQuery("SELECT * FROM seo_data where pagename='home_image_section_2_image_alt'");
-                                                   echo $seo_page_data[0]["seo_description"]; ?>"/>
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <label>Home Image Section Caption 3</label>
-                                            <textarea class="form-control" rows="7" name="home_image_section_3"
-                                                      placeholder="Caption..."
-                                                      spellcheck="false"><?php $seo_page_data = $db_handle->runQuery("SELECT * FROM seo_data where pagename='home_image_section_3'");
-                                                echo $seo_page_data[0]["seo_description"]; ?></textarea>
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <label>Home Image Section Image alt 3</label>
-                                            <input type="text" class="form-control" name="home_image_section_3_image_alt"
-                                                   placeholder="Image alt..."
-                                                   value="<?php $seo_page_data = $db_handle->runQuery("SELECT * FROM seo_data where pagename='home_image_section_3_image_alt'");
-                                                   echo $seo_page_data[0]["seo_description"]; ?>"/>
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <label>Footer Section Caption</label>
-                                            <textarea class="form-control" rows="7" name="footer_caption"
-                                                      placeholder="Caption..."
-                                                      spellcheck="false"><?php $seo_page_data = $db_handle->runQuery("SELECT * FROM seo_data where pagename='footer_caption'");
-                                                echo $seo_page_data[0]["seo_description"]; ?></textarea>
                                         </div>
                                     </div>
                                     <button type="submit" name="home_data_update" class="btn btn-primary">Submit

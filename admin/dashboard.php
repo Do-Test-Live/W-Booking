@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../include/dbcontroller.php");
+require_once("../includes/dbcontroller.php");
 $db_handle = new DBController();
 ?>
 <!DOCTYPE html>
@@ -9,7 +9,7 @@ $db_handle = new DBController();
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Dashboard Admin | Broadway Driving School</title>
+    <title>Dashboard Admin | Food Island</title>
     <meta name="description" content="Some description for the page"/>
     <?php require_once('include/css.php'); ?>
 </head>
@@ -63,11 +63,11 @@ $db_handle = new DBController();
                                 <i class="flaticon-381-calendar-1"></i>
                                 </span>
                                 <div class="media-body text-white text-right">
-                                    <p class="mb-1">Total Number of Packages Sell</p>
+                                    <p class="mb-1">Total Number of Product</p>
                                     <h3 class="text-white">
                                         <?php
-                                        $total_quantity = $db_handle->runQuery("SELECT sum(product_quantity) as total_quantity FROM invoice_details as i, billing_details as b where i.billing_id=b.id and b.approve=2");
-                                        echo $total_quantity[0]["total_quantity"];
+                                        $total_product = $db_handle->numRows("SELECT * FROM tblproduct");
+                                        echo $total_product;
                                         ?>
                                     </h3>
                                 </div>
@@ -75,7 +75,7 @@ $db_handle = new DBController();
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-6 col-sm-6 col-xxl-4">
+                <!--<div class="col-xl-3 col-lg-6 col-sm-6 col-xxl-4">
                     <div class="widget-stat card bg-success">
                         <div class="card-body p-4">
                             <div class="media">
@@ -86,9 +86,9 @@ $db_handle = new DBController();
                                     <p class="mb-1">Total Sell</p>
                                     <h3 class="text-white">
                                         <?php
-                                        $total_amount = $db_handle->runQuery("SELECT sum(product_total_price) as total_price FROM invoice_details as i, billing_details as b where i.billing_id=b.id and b.approve=2");
+/*                                        $total_amount = $db_handle->runQuery("SELECT sum(product_total_price) as total_price FROM invoice_details as i, billing_details as b where i.billing_id=b.id and b.approve=2");
                                         echo '$' . $total_amount[0]["total_price"];
-                                        ?>
+                                        */?>
                                     </h3>
                                 </div>
                             </div>
@@ -106,9 +106,9 @@ $db_handle = new DBController();
                                     <p class="mb-1">Total Contact Data</p>
                                     <h3 class="text-white">
                                         <?php
-                                            $row_count = $db_handle->numRows("SELECT * FROM contact order by id desc");
+/*                                            $row_count = $db_handle->numRows("SELECT * FROM contact order by id desc");
                                             echo $row_count;
-                                        ?>
+                                        */?>
                                     </h3>
                                 </div>
                             </div>
@@ -125,15 +125,15 @@ $db_handle = new DBController();
                                 <div class="media-body text-white text-right">
                                     <p class="mb-1">Total Newsletter Subscription</p>
                                     <h3 class="text-white"><?php
-                                        $row_count = $db_handle->numRows("SELECT * FROM newsletter order by id desc");
+/*                                        $row_count = $db_handle->numRows("SELECT * FROM newsletter order by id desc");
                                         echo $row_count;
-                                        ?>
+                                        */?>
                                     </h3>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../include/dbcontroller.php");
+require_once("../includes/dbcontroller.php");
 $db_handle = new DBController();
 if(isset($_GET['contact_id'])){
     $approve = $db_handle->insertQuery("update contact set approve=2 where id='{$_GET['contact_id']}'");

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../include/dbcontroller.php");
+require_once("../includes/dbcontroller.php");
 $db_handle = new DBController();
 ?>
 <!DOCTYPE html>
@@ -9,7 +9,7 @@ $db_handle = new DBController();
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Contact Data Admin | Broadway Driving School</title>
+    <title>Contact Data Admin | Food Island</title>
     <meta name="description" content="Some description for the page"/>
     <?php require_once('include/css.php'); ?>
 </head>

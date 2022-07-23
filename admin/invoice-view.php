@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../include/dbcontroller.php");
+require_once("../includes/dbcontroller.php");
 $db_handle = new DBController();
 if (isset($_POST["id"])) {
     $package_sell_data = $db_handle->runQuery("SELECT * FROM billing_details where id='{$_POST["id"]}'");

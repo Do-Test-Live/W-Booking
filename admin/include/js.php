@@ -8,8 +8,6 @@
 <script src="public/vendor/owl-carousel/owl.carousel.js" type="text/javascript"></script>
 <script src="public/vendor/apexchart/apexchart.js" type="text/javascript"></script>
 <script src="public/js/dashboard/dashboard-1.js" type="text/javascript"></script>
-<script src="public/vendor/sweetalert2/dist/sweetalert2.min.js" type="text/javascript"></script>
-<script src="public/js/plugins-init/sweetalert.init.js" type="text/javascript"></script>
 <script src="public/vendor/chartist/js/chartist.min.js" type="text/javascript"></script>
 <script src="public/vendor/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js" type="text/javascript"></script>
 <script src="public/vendor/flot/jquery.flot.js" type="text/javascript"></script>

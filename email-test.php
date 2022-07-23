@@ -1,5 +1,5 @@
 <?php
-require_once('include/dbcontroller.php');
+require_once('includes/dbcontroller.php');
 $db_handle = new DBController();
 
 function productCode($length)

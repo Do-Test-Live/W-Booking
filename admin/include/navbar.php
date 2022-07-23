@@ -7,14 +7,19 @@
                 </a>
             </li>
             <?php if ($_SESSION['role'] == 'seo' || $_SESSION['role'] == 'admin') { ?>
+                <li><a class="ai-icon" href="Category" aria-expanded="false">
+                        <i class="flaticon-381-file"></i>
+                        <span class="nav-text">Category</span>
+                    </a>
+                </li>
+                <li><a class="ai-icon" href="Product" aria-expanded="false">
+                        <i class="flaticon-381-id-card"></i>
+                        <span class="nav-text">Product</span>
+                    </a>
+                </li>
                 <li><a class="ai-icon" href="Seo-Data" aria-expanded="false">
                         <i class="flaticon-381-television"></i>
                         <span class="nav-text">Seo Data</span>
-                    </a>
-                </li>
-                <li><a class="ai-icon" href="Custom-Package" aria-expanded="false">
-                        <i class="flaticon-381-file"></i>
-                        <span class="nav-text">Custom Package</span>
                     </a>
                 </li>
                 <li><a class="ai-icon" href="Activity-Log" aria-expanded="false">

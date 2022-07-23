@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../include/dbcontroller.php");
+require_once("../includes/dbcontroller.php");
 $db_handle = new DBController();
 if (isset($_POST["submit"])) {
     $email = $db_handle->checkValue($_POST['email']);
@@ -52,9 +52,9 @@ if(isset($_SESSION["name"])){
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Login Admin | Broadway Driving School</title>
+    <title>Login Admin | Food Island</title>
     <meta name="description" content="Some description for the page"/>
-    <link rel="icon" type="image/png" href="../images/icons/favicon.png"/>
+    <link rel="icon" type="image/png" href="public/images/favicon.png"/>
     <link href="public/css/style.css" rel="stylesheet">
     <link href="public/vendor/toastr/css/toastr.min.css" rel="stylesheet" type="text/css"/>
 </head>
