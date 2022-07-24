@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 23, 2022 at 02:14 PM
+-- Generation Time: Jul 24, 2022 at 12:52 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -33,6 +33,15 @@ CREATE TABLE `activity_log` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `activity_log`
+--
+
+INSERT INTO `activity_log` (`id`, `log_text`, `updated_at`) VALUES
+(1, 'Monoget Saha IP: ::1 insert new product', '2022-07-24 10:01:34'),
+(2, 'Monoget Saha IP: ::1 insert new product', '2022-07-24 10:02:58'),
+(3, 'Monoget Saha IP: ::1 update product id-28', '2022-07-24 10:07:07');
+
 -- --------------------------------------------------------
 
 --
@@ -57,7 +66,8 @@ CREATE TABLE `admin_login` (
 INSERT INTO `admin_login` (`id`, `name`, `ip`, `image`, `email`, `password`, `role`, `updated_at`) VALUES
 (1, 'Monoget Saha', '27.147.190.199', 'public/images/profile/monoget.png', 'monoget1@gmail.com', '@BCD1234', 'admin', '2022-02-06 11:16:17'),
 (2, 'Munna Khan', '103.107.160.134', 'public/images/avatar-01.jpg', 'munna@gmail.com', '@BCD1234', 'admin', '2022-02-10 11:09:43'),
-(3, 'Syed Shifat', '103.107.161.88', 'public/images/avatar-01.jpg', 'shifat@gmail.com', '@BCD1234', 'seo', '2022-02-10 11:09:54');
+(3, 'Syed Shifat', '103.107.161.88', 'public/images/avatar-01.jpg', 'shifat@gmail.com', '@BCD1234', 'seo', '2022-02-10 11:09:54'),
+(4, 'Super Admin', '103.107.160.134', 'public/images/avatar-01.jpg', 'test@superadmin.com', '@BCD1234', 'admin', '2022-02-10 11:09:43');
 
 -- --------------------------------------------------------
 
@@ -105,6 +115,7 @@ CREATE TABLE `order_detail` (
   `seat_number` varchar(20) NOT NULL,
   `number` varchar(20) NOT NULL,
   `email` varchar(100) NOT NULL,
+  `price` double(10,2) NOT NULL,
   `occasion` varchar(150) NOT NULL,
   `alergies` varchar(150) NOT NULL,
   `inserted_at` datetime NOT NULL,
@@ -122,7 +133,7 @@ CREATE TABLE `tblproduct` (
   `name` varchar(255) NOT NULL,
   `code` varchar(20) NOT NULL,
   `time` varchar(200) NOT NULL,
-  `price` double(10,2) NOT NULL,
+  `price` varchar(150) NOT NULL,
   `description` varchar(500) NOT NULL,
   `menu_image` varchar(150) NOT NULL,
   `product_image` varchar(150) NOT NULL,
@@ -136,21 +147,9 @@ CREATE TABLE `tblproduct` (
 --
 
 INSERT INTO `tblproduct` (`id`, `name`, `code`, `time`, `price`, `description`, `menu_image`, `product_image`, `extended_image`, `status`, `updated_at`) VALUES
-(1, '1 LESSON PACKAGE', 'FGZDMR', '', 210.00, '1 DRIVING LESSON (Per Lesson 45min)', '', '', '', 1, '2022-07-23 10:45:38'),
-(2, '2 LESSONS PACKAGE', 'BP4ISN', '', 265.00, '2 DRIVING LESSON (Per Lesson 45min)', '', '', '', 1, '2022-07-23 10:45:38'),
-(3, '3 LESSONS PACKAGE', '65147S', '', 315.00, '3 DRIVING LESSON (Per Lesson 45min)', '', '', '', 1, '2022-07-23 10:45:38'),
-(4, '4 LESSONS PACKAGE', '5Q4SIR', '', 370.00, '4 DRIVING LESSON (Per Lesson 45min)', '', '', '', 1, '2022-07-23 10:45:38'),
-(5, '5 LESSONS PACKAGE', 'DNHD8O', '', 420.00, '5 DRIVING LESSON (Per Lesson 45min)', '', '', '', 1, '2022-07-23 10:45:38'),
-(6, '10 LESSONS PACKAGE', '03AVO5', '', 685.00, '10 DRIVING LESSON (Per Lesson 45min)', '', '', '', 1, '2022-07-23 10:45:38'),
-(7, '15 LESSONS PACKAGE', 'WL3AP7', '', 945.00, '15 DRIVING LESSON (Per Lesson 45min)', '', '', '', 1, '2022-07-23 10:45:38'),
-(8, '20 LESSONS PACKAGE', 'GXH91G', '', 1210.00, '20 DRIVING LESSON (Per Lesson 45min)', '', '', '', 1, '2022-07-23 10:45:38'),
-(9, 'Regular Road Lesson', 'DO6UY7', '', 60.00, '(45 MINUTES)', '', '', '', 1, '2022-07-23 10:45:38'),
-(10, '5 Hour Class', 'HCC6U0', '', 55.00, 'PRE-LICENSING COURSE', '', '', '', 1, '2022-07-23 10:45:38'),
-(11, 'Road Test Appointment', 'BRMKVF', '', 50.00, 'Appointment within 1 Week', '', '', '', 1, '2022-07-23 10:45:38'),
-(12, 'Car for Road Test', 'YHXSF7', '', 185.00, 'Car with our professional instructor', '', '', '', 1, '2022-07-23 10:45:38'),
-(13, 'Highway Driving Lesson', '685AVW', '', 75.00, 'MINIMUM 2 LESSON (Per Lesson 45min)', '', '', '', 1, '2022-07-23 10:45:38'),
-(14, 'Due Payment', 'L5K5GH', '', 530.00, 'PRE-LICENSING COURSE', '', '', '', 1, '2022-07-23 10:45:38'),
-(15, 'Rush', 'D815U8', '', 25.00, '', '', '', '', 1, '2022-07-23 10:45:38');
+(1, 'Burger', 'FGZDMR', '10:00 AM, 5:00 PM, 6:00 PM', '210.00, 510.00, 650.00', '1 DRIVING LESSON (Per Lesson 45min)', '', '', '', 1, '2022-07-24 07:35:41'),
+(28, 'Pizza', 'S3S757CZ', '5:00 AM,6:00 PM', '7.99, 8.55', '', '', '', '', 1, '2022-07-24 10:05:13'),
+(29, 'Samousa', 'A0T0RYPO', '10:00 AM, 3:00 PM', '7.99, 8.55', '', '', '', '', 1, '2022-07-24 10:02:58');
 
 --
 -- Indexes for dumped tables
@@ -194,13 +193,13 @@ ALTER TABLE `tblproduct`
 -- AUTO_INCREMENT for table `activity_log`
 --
 ALTER TABLE `activity_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `admin_login`
 --
 ALTER TABLE `admin_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `billing_details`
@@ -218,7 +217,7 @@ ALTER TABLE `order_detail`
 -- AUTO_INCREMENT for table `tblproduct`
 --
 ALTER TABLE `tblproduct`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
