@@ -9,7 +9,7 @@ $db_handle = new DBController();
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Product Admin | Food Island</title>
+    <title>Product Admin | Restaurants</title>
     <meta name="description" content="Some description for the page"/>
     <?php require_once('include/css.php'); ?>
     <style>
@@ -107,7 +107,7 @@ $db_handle = new DBController();
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-row">
+                                        <!--<div class="form-row">
                                             <label>Menu Image</label>
                                             <div class="form-group col-md-12">
                                                 <div class="input-group">
@@ -142,7 +142,7 @@ $db_handle = new DBController();
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>-->
                                         <button type="submit" name="product_add" class="btn btn-primary">
                                             Submit
                                         </button>
@@ -193,7 +193,7 @@ $db_handle = new DBController();
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-row">
+                                        <!--<div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label>Menu Image</label>
                                                 <div class="input-group">
@@ -204,7 +204,7 @@ $db_handle = new DBController();
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <img src="../<?php echo $data[0]["menu_image"]; ?>" alt=""
+                                                <img src="../<?php /*echo $data[0]["menu_image"]; */?>" alt=""
                                                      height="250px"/>
                                             </div>
                                         </div>
@@ -219,7 +219,7 @@ $db_handle = new DBController();
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <img src="../<?php echo $data[0]["product_image"]; ?>" alt=""
+                                                <img src="../<?php /*echo $data[0]["product_image"]; */?>" alt=""
                                                      height="250px"/>
                                             </div>
                                         </div>
@@ -235,21 +235,21 @@ $db_handle = new DBController();
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <?php $sb = explode(',', $data[0]["extended_image"]);
+                                                <?php /*$sb = explode(',', $data[0]["extended_image"]);
                                                 $k = 1;
                                                 foreach ($sb as $bb) {
                                                     if ($bb == '') {
                                                         echo '';
                                                     } else {
-                                                        ?>
-                                                        <img src="../<?php echo $bb; ?>" alt="" height="250px"/>
+                                                        */?>
+                                                        <img src="../<?php /*echo $bb; */?>" alt="" height="250px"/>
                                                         <?php
-                                                    }
+/*                                                    }
                                                     $k++;
                                                 }
-                                                ?>
+                                                */?>
                                             </div>
-                                        </div>
+                                        </div>-->
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
                                                 <div class="dropdown bootstrap-select form-control">
@@ -291,9 +291,9 @@ $db_handle = new DBController();
                                             <th>Code</th>
                                             <th>Time</th>
                                             <th>Price</th>
-                                            <th>Menu Image</th>
+                                            <!--<th>Menu Image</th>
                                             <th>Shop Image</th>
-                                            <th>EX Image</th>
+                                            <th>EX Image</th>-->
                                             <th>Time</th>
                                             <th>Status</th>
                                             <th>Action</th>
@@ -312,26 +312,26 @@ $db_handle = new DBController();
                                                 <td><?php echo $product_data[$i]["code"]; ?></td>
                                                 <td><?php echo $product_data[$i]["time"]; ?></td>
                                                 <td><?php echo $product_data[$i]["price"]; ?></td>
-                                                <td><a href="../<?php echo $product_data[$i]["menu_image"]; ?>"
+                                                <!--<td><a href="../<?php /*echo $product_data[$i]["menu_image"]; */?>"
                                                        target="_blank">m_i</a></td>
-                                                <td><a href="../<?php echo $product_data[$i]["product_image"]; ?>"
+                                                <td><a href="../<?php /*echo $product_data[$i]["product_image"]; */?>"
                                                        target="_blank">p_i</a></td>
                                                 <td class="text-center">
-                                                    <?php $sb = explode(',', $product_data[$i]["extended_image"]);
+                                                    <?php /*$sb = explode(',', $product_data[$i]["extended_image"]);
                                                     $k = 1;
                                                     foreach ($sb as $bb) {
                                                         if ($bb == '') {
                                                             echo '';
                                                         } else {
-                                                            ?>
-                                                            <a href="../<?php echo $bb; ?>"
-                                                               target="_blank">ex_<?php echo $k; ?></a>
+                                                            */?>
+                                                            <a href="../<?php /*echo $bb; */?>"
+                                                               target="_blank">ex_<?php /*echo $k; */?></a>
                                                             <?php
-                                                        }
+/*                                                        }
                                                         $k++;
                                                     }
-                                                    ?>
-                                                </td>
+                                                    */?>
+                                                </td>-->
                                                 <td>
                                                     <?php
 

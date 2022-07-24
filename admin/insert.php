@@ -33,7 +33,7 @@ if (isset($_POST['category_add'])) {
 if (isset($_POST['product_add'])) {
     $name = $db_handle->checkValue($_POST['p_name']);
 
-    $category_id = $db_handle->checkValue($_POST['category_id']);
+    $time = $db_handle->checkValue($_POST['time']);
 
     $price = $db_handle->checkValue($_POST['price']);
 
@@ -104,7 +104,7 @@ if (isset($_POST['product_add'])) {
 
     $extended_image = implode(',', $error);
 
-    $insert = $db_handle->insertQuery("INSERT INTO `tblproduct`(`category_id`, `p_name`, `code`, `price`, `menu_image`, `product_image`, `extended_image`) VALUES ('$category_id','$name','$code','$price','$menu_image','$shop_image','$extended_image')");
+    $insert = $db_handle->insertQuery("INSERT INTO `tblproduct`( `name`, `code`, `time`, `price`, `menu_image`, `product_image`, `extended_image`) VALUES ('$name','$code','$time','$price','$menu_image','$shop_image','$extended_image')");
 
     $log = $db_handle->insertQuery("INSERT INTO `activity_log`(`log_text`) VALUES ('{$_SESSION['name']} IP: {$_SERVER['REMOTE_ADDR']} insert new product')");
 

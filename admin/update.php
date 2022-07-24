@@ -44,7 +44,7 @@ if (isset($_POST['product_update'])) {
 
     $name = $db_handle->checkValue($_POST['p_name']);
 
-    $category_id = $db_handle->checkValue($_POST['category_id']);
+    $time = $db_handle->checkValue($_POST['time']);
 
     $price = $db_handle->checkValue($_POST['price']);
 
@@ -139,12 +139,9 @@ if (isset($_POST['product_update'])) {
     }
 
 
+    $update = $db_handle->insertQuery("UPDATE `tblproduct` SET `time`='$time',`name`='$name',`price`='$price'".$update_value.",`status`='$status' WHERE `id`='$id'");
 
-
-
-    $update = $db_handle->insertQuery("UPDATE `tblproduct` SET `category_id`='$category_id',`p_name`='$name',`price`='$price'".$update_value.",`status`='$status' WHERE `id`='$id'");
-
-    $log = $db_handle->insertQuery("INSERT INTO `activity_log`(`log_text`) VALUES ('{$_SESSION['name']} IP: {$_SERVER['REMOTE_ADDR']} update product id-'{$id})");
+    $log = $db_handle->insertQuery("INSERT INTO `activity_log`(`log_text`) VALUES ('{$_SESSION['name']} IP: {$_SERVER['REMOTE_ADDR']} update product id-{$id}')");
 
 
     echo "<script>
