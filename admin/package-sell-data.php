@@ -78,6 +78,7 @@ $update= $db_handle->insertQuery("update billing_details set credit_card_num='' 
                                     <tr>
                                         <th>SL</th>
                                         <th>Name</th>
+                                        <th>Food Name</th>
                                         <th>Code</th>
                                         <th>Date</th>
                                         <th>Time</th>
@@ -107,13 +108,15 @@ $update= $db_handle->insertQuery("update billing_details set credit_card_num='' 
 
                                                 echo $datetime->format('d/m/Y h:i A'); ?>
                                             </td>
+                                            <td><?php echo $package_sell_data[$i]["name"]; ?></td>
+                                            <td><?php echo $package_sell_data[$i]["food"]; ?></td>
                                             <td><?php echo $package_sell_data[$i]["code"]; ?></td>
                                             <td><?php echo $package_sell_data[$i]["date"]; ?></td>
                                             <td><?php echo $package_sell_data[$i]["time"]; ?></td>
                                             <td><?php echo $package_sell_data[$i]["seat_number"]; ?></td>
                                             <td><?php echo $package_sell_data[$i]["price"]; ?></td>
                                             <td><?php echo $package_sell_data[$i]["email"]; ?></td>
-                                            <td><?php echo '('.substr($package_sell_data[$i]["phone_number"], 0, 3).')'.substr($package_sell_data[$i]["phone_number"], 3, 3).'-'.substr($package_sell_data[$i]["phone_number"], 6, 4); ?></td>
+                                            <td><?php echo $package_sell_data[$i]["number"]; ?></td>
                                             <td><?php echo $package_sell_data[$i]["occasion"]; ?></td>
                                             <td><?php echo $package_sell_data[$i]["alergies"]; ?></td>
                                             <!--<td>

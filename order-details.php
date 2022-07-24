@@ -126,7 +126,7 @@ $db_handle = new DBController();
             $order_data = $db_handle->runQuery("SELECT * FROM `order_detail` where code='{$_GET['code']}'");
             ?>
             <div class="row mb-3">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <p>Name</p>
                     <h5>
                         <?php
@@ -134,7 +134,15 @@ $db_handle = new DBController();
                         ?>
                     </h5>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
+                    <p>Food Name</p>
+                    <h5>
+                        <?php
+                        echo $order_data[0]['food'];
+                        ?>
+                    </h5>
+                </div>
+                <div class="col-md-6">
                     <p>Number</p>
                     <h5>
                         <?php
@@ -142,7 +150,7 @@ $db_handle = new DBController();
                         ?>
                     </h5>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <p>Email</p>
                     <h5>
                         <?php

@@ -237,7 +237,7 @@ $db_handle = new DBController();
                         <span class="lnr lnr-arrow-right"></span>
                     </div>
                 </li>
-                <li data-transition="">
+                <!--<li data-transition="">
                     <img src="images/slideshow-4.jpg" class="rev-slidebg" alt="">
                     <div class="tp-caption tp-resizeme caption-4"
                          data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
@@ -267,12 +267,12 @@ $db_handle = new DBController();
                                         <label class="text-white">Seat(s)</label>
                                         <select class="form-control form-home" name="seat_number" required>
                                             <?php
-                                            for ($i = 1; $i < 21; $i++) {
-                                                ?>
-                                                <option value="<?php echo $i; ?>"><?php echo $i . ' Seat(s)' ?></option>
+/*                                            for ($i = 1; $i < 21; $i++) {
+                                                */?>
+                                                <option value="<?php /*echo $i; */?>"><?php /*echo $i . ' Seat(s)' */?></option>
                                                 <?php
-                                            }
-                                            ?>
+/*                                            }
+                                            */?>
                                         </select>
                                         <span class="lnr lnr-chevron-down" style="padding-right: 5px"></span>
                                     </div>
@@ -282,7 +282,7 @@ $db_handle = new DBController();
                                         <label class="text-white">Date</label>
                                         <input type="text" class="form-control form-home" data-language='en'
                                                data-date-format="dd - mm - yyyy" placeholder="Today" name="date"
-                                               min="<?php echo date("Y-m-d"); ?>" onfocus="(this.type = 'date')" id="date-2" required/>
+                                               min="<?php /*echo date("Y-m-d"); */?>" onfocus="(this.type = 'date')" id="date-2" required/>
 
                                     </div>
                                 </div>
@@ -295,13 +295,13 @@ $db_handle = new DBController();
                                                 onchange="setFoodPrice(this.value,'2');" required>
                                             <option value="">Select Product</option>
                                             <?php
-                                            $order_data = $db_handle->runQuery("SELECT * FROM `tblproduct` where status='1'");
+/*                                            $order_data = $db_handle->runQuery("SELECT * FROM `tblproduct` where status='1'");
                                             for ($i = 0; $i < count($order_data); $i++) {
-                                                ?>
-                                                <option value="<?php echo $order_data[$i]['id']; ?>"><?php echo $order_data[$i]['name']; ?></option>
+                                                */?>
+                                                <option value="<?php /*echo $order_data[$i]['id']; */?>"><?php /*echo $order_data[$i]['name']; */?></option>
                                                 <?php
-                                            }
-                                            ?>
+/*                                            }
+                                            */?>
                                         </select>
                                         <span class="lnr lnr-chevron-down" style="padding-right: 5px"></span>
                                     </div>
@@ -385,12 +385,12 @@ $db_handle = new DBController();
                                         <label class="text-white">Seat(s)</label>
                                         <select class="form-control form-home" name="seat_number" required>
                                             <?php
-                                            for ($i = 1; $i < 21; $i++) {
-                                                ?>
-                                                <option value="<?php echo $i; ?>"><?php echo $i . ' Seat(s)' ?></option>
+/*                                            for ($i = 1; $i < 21; $i++) {
+                                                */?>
+                                                <option value="<?php /*echo $i; */?>"><?php /*echo $i . ' Seat(s)' */?></option>
                                                 <?php
-                                            }
-                                            ?>
+/*                                            }
+                                            */?>
                                         </select>
                                         <span class="lnr lnr-chevron-down" style="padding-right: 5px"></span>
                                     </div>
@@ -400,7 +400,7 @@ $db_handle = new DBController();
                                         <label class="text-white">Date</label>
                                         <input type="text" class="form-control form-home" data-language='en'
                                                data-date-format="dd - mm - yyyy" placeholder="Today" name="date"
-                                               min="<?php echo date("Y-m-d"); ?>" onfocus="(this.type = 'date')" id="date-3" required/>
+                                               min="<?php /*echo date("Y-m-d"); */?>" onfocus="(this.type = 'date')" id="date-3" required/>
 
                                     </div>
                                 </div>
@@ -413,13 +413,13 @@ $db_handle = new DBController();
                                                 onchange="setFoodPrice(this.value,'3');" required>
                                             <option value="">Select Product</option>
                                             <?php
-                                            $order_data = $db_handle->runQuery("SELECT * FROM `tblproduct` where status='1'");
+/*                                            $order_data = $db_handle->runQuery("SELECT * FROM `tblproduct` where status='1'");
                                             for ($i = 0; $i < count($order_data); $i++) {
-                                                ?>
-                                                <option value="<?php echo $order_data[$i]['id']; ?>"><?php echo $order_data[$i]['name']; ?></option>
+                                                */?>
+                                                <option value="<?php /*echo $order_data[$i]['id']; */?>"><?php /*echo $order_data[$i]['name']; */?></option>
                                                 <?php
-                                            }
-                                            ?>
+/*                                            }
+                                            */?>
                                         </select>
                                         <span class="lnr lnr-chevron-down" style="padding-right: 5px"></span>
                                     </div>
@@ -471,7 +471,7 @@ $db_handle = new DBController();
 							}]'>
                         <span class="lnr lnr-arrow-right"></span>
                     </div>
-                </li>
+                </li>-->
             </ul>
         </div>
     </div>
@@ -592,6 +592,8 @@ $db_handle = new DBController();
 
 <script src="vendor/jquery-timepicker-master/jquery.timepicker.min.js"></script>
 <script src="js/main.min.js"></script>
+
+<script src="js/toaster-init.js"></script>
 
 <script>
     function setFoodPrice(value, id) {

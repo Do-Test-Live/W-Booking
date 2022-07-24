@@ -2149,7 +2149,7 @@ body.center {
 }
 
 .tp-bullet.selected, .tp-bullet:hover {
-    background: #cdaa7c;
+    background: rgba(205, 170, 124, 0);
     border-color: transparent;
     -webkit-transition: all 1s ease;
     -moz-transition: all 1s ease;

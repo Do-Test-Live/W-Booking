@@ -1,3 +1,7 @@
+<?php
+require_once('includes/dbcontroller.php');
+$db_handle = new DBController();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -117,7 +121,7 @@
             </div>
             <div class="row mb-3">
 
-                <div class="col-md-4">
+                <div class="col-lg-3">
                     <h5>
                         <?php
                         if (!isset($_GET['date'])) {
@@ -131,7 +135,7 @@
                     </h5>
                     <p>Date</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-lg-3">
                     <h5>
                         <?php
                         if (isset($_GET['price'])) {
@@ -141,7 +145,7 @@
                     </h5>
                     <p>Time & Price</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-lg-3">
                     <h5>
                         <?php
                         if (isset($_GET['seat_number'])) {
@@ -151,11 +155,26 @@
                     </h5>
                     <p>Seat(s)</p>
                 </div>
+                <div class="col-lg-3">
+                    <h5>
+                        <?php
+                        if (isset($_GET['food'])) {
+                            $order_data = $db_handle->runQuery("SELECT * FROM `tblproduct` where id={$_GET['food']}");
+                            echo $order_data[0]['name'];
+                        }
+                        ?>
+                    </h5>
+                    <p>Food Name</p>
+                </div>
             </div>
             <form action="Email" method="post">
                 <input type="hidden" value="<?php echo $_GET['date']; ?>" name="date"/>
                 <input type="hidden" value="<?php echo $_GET['price']; ?>" name="time"/>
                 <input type="hidden" value="<?php echo $_GET['seat_number']; ?>" name="seat_number"/>
+                <input type="hidden" name="food" value="<?php
+                $order_data = $db_handle->runQuery("SELECT * FROM `tblproduct` where id={$_GET['food']}");
+                echo $order_data[0]['name'];
+                ?>"/>
                 <h3>Customer Information</h3>
                 <div class="form-inner">
                     <div class="col-12 mt-3">
