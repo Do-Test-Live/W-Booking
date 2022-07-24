@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
     $url = $_SERVER['SERVER_NAME'].'/Order-Detail?code=' . $code;
 
     $email_to = $email;
-    $subject = 'Email From Food Island';
+    $subject = 'Email From Restaurants';
     $userName = $name;
     $l = strtolower($userName);
     $u = ucfirst($l);
@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
 
     $insert = $db_handle->insertQuery("INSERT INTO `order_detail`(`name`, `code`, `date`, `time`, `seat_number`, `number`, `email`, `occasion`, `alergies`) VALUES ('$name','$code','$date','$time','$seat_number','$number','$email','$occasion','$alergies')");
 
-    $headers = "From: Food Island <" . $db_handle->from_email() . ">\r\n";
+    $headers = "From: Restaurants <" . $db_handle->from_email() . ">\r\n";
     $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
     $messege = "<html>
@@ -61,7 +61,7 @@ if (isset($_POST['submit'])) {
                              </p>
                             
                             <p style='color:black;font-weight:bold'>We look forward to speaking with you!<br>
-                                Food Island Team
+                                Restaurants Team
                             </p> 
                              <p style='color:black;text-align: center'>
                                 Please Scan The QR Code edit the info

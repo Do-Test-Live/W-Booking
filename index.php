@@ -178,7 +178,7 @@ $db_handle = new DBController();
                                                 onchange="setFoodPrice(this.value,'1');" required>
                                             <option value="">Select Product</option>
                                             <?php
-                                            $order_data = $db_handle->runQuery("SELECT * FROM `tblproduct`");
+                                            $order_data = $db_handle->runQuery("SELECT * FROM `tblproduct` where status='1'");
                                             for ($i = 0; $i < count($order_data); $i++) {
                                                 ?>
                                                 <option value="<?php echo $order_data[$i]['id']; ?>"><?php echo $order_data[$i]['name']; ?></option>
@@ -295,7 +295,7 @@ $db_handle = new DBController();
                                                 onchange="setFoodPrice(this.value,'2');" required>
                                             <option value="">Select Product</option>
                                             <?php
-                                            $order_data = $db_handle->runQuery("SELECT * FROM `tblproduct`");
+                                            $order_data = $db_handle->runQuery("SELECT * FROM `tblproduct` where status='1'");
                                             for ($i = 0; $i < count($order_data); $i++) {
                                                 ?>
                                                 <option value="<?php echo $order_data[$i]['id']; ?>"><?php echo $order_data[$i]['name']; ?></option>
@@ -413,7 +413,7 @@ $db_handle = new DBController();
                                                 onchange="setFoodPrice(this.value,'3');" required>
                                             <option value="">Select Product</option>
                                             <?php
-                                            $order_data = $db_handle->runQuery("SELECT * FROM `tblproduct`");
+                                            $order_data = $db_handle->runQuery("SELECT * FROM `tblproduct` where status='1'");
                                             for ($i = 0; $i < count($order_data); $i++) {
                                                 ?>
                                                 <option value="<?php echo $order_data[$i]['id']; ?>"><?php echo $order_data[$i]['name']; ?></option>
@@ -514,7 +514,7 @@ $db_handle = new DBController();
                                         onchange="setFoodPrice(this.value,'4');" required>
                                     <option value="">Select Product</option>
                                     <?php
-                                    $order_data = $db_handle->runQuery("SELECT * FROM `tblproduct`");
+                                    $order_data = $db_handle->runQuery("SELECT * FROM `tblproduct` where status='1'");
                                     for ($i = 0; $i < count($order_data); $i++) {
                                         ?>
                                         <option value="<?php echo $order_data[$i]['id']; ?>"><?php echo $order_data[$i]['name']; ?></option>
