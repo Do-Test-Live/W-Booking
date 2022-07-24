@@ -19,7 +19,11 @@ if (isset($_POST['submit'])) {
 
     $date = $db_handle->checkValue($_POST['date']);
 
-    $time = $db_handle->checkValue($_POST['time']);
+    $data=explode(', ', $_POST["time"]);
+
+    $time=$data[0];
+
+    $price=substr($data[1], strpos($data[1], "HKD-") + 4);
 
     $seat_number = $db_handle->checkValue($_POST['seat_number']);
 
@@ -42,7 +46,7 @@ if (isset($_POST['submit'])) {
     $u = ucfirst($l);
 
 
-    $insert = $db_handle->insertQuery("INSERT INTO `order_detail`(`name`, `code`, `date`, `time`, `seat_number`, `number`, `email`, `occasion`, `alergies`) VALUES ('$name','$code','$date','$time','$seat_number','$number','$email','$occasion','$alergies')");
+    $insert = $db_handle->insertQuery("INSERT INTO `order_detail`(`name`, `code`, `date`, `time`, `price`, `seat_number`, `number`, `email`, `occasion`, `alergies`) VALUES ('$name','$code','$date','$time','$price','$seat_number','$number','$email','$occasion','$alergies')");
 
     $headers = "From: Restaurants <" . $db_handle->from_email() . ">\r\n";
     $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";

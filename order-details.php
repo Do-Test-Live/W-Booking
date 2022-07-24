@@ -161,10 +161,10 @@ $db_handle = new DBController();
                     </h5>
                 </div>
                 <div class="col-md-4">
-                    <p>Time</p>
+                    <p>Time & Price</p>
                     <h5>
                         <?php
-                        echo $order_data[0]['time'];
+                        echo $order_data[0]['time'].' HKD-'.$order_data[0]['price'];
                         ?>
                     </h5>
                 </div>
