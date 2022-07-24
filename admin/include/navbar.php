@@ -19,11 +19,6 @@
                 </li>
             <?php }
             if ($_SESSION['role'] == 'sell' || $_SESSION['role'] == 'admin') { ?>
-                <li><a class="ai-icon" href="Pending-Package-Sell-Data" aria-expanded="false">
-                        <i class="flaticon-381-earth-globe"></i>
-                        <span class="nav-text">Pending</span>
-                    </a>
-                </li>
                 <li><a class="ai-icon" href="Package-Sell-Data" aria-expanded="false">
                         <i class="flaticon-381-controls-3"></i>
                         <span class="nav-text">Package Sell Data</span>
