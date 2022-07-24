@@ -134,12 +134,12 @@
                 <div class="col-md-4">
                     <h5>
                         <?php
-                        if (isset($_GET['time'])) {
-                            echo $_GET['time'];
+                        if (isset($_GET['price'])) {
+                            echo $_GET['price'];
                         }
                         ?>
                     </h5>
-                    <p>Time</p>
+                    <p>Time & Price</p>
                 </div>
                 <div class="col-md-4">
                     <h5>
@@ -154,7 +154,7 @@
             </div>
             <form action="Email" method="post">
                 <input type="hidden" value="<?php echo $_GET['date']; ?>" name="date"/>
-                <input type="hidden" value="<?php echo $_GET['time']; ?>" name="time"/>
+                <input type="hidden" value="<?php echo $_GET['price']; ?>" name="time"/>
                 <input type="hidden" value="<?php echo $_GET['seat_number']; ?>" name="seat_number"/>
                 <h3>Customer Information</h3>
                 <div class="form-inner">

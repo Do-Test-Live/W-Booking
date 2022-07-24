@@ -1,3 +1,7 @@
+<?php
+require_once('includes/dbcontroller.php');
+$db_handle = new DBController();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,6 +33,22 @@
     <link rel="shortcut icon" href="favicon.png">
 
     <link rel="stylesheet" href="css/style.css"/>
+
+    <style>
+        .form-home {
+            background-color: white;
+            padding-left: 5px;
+            padding-right: 5px;
+            height: 39px;
+        }
+
+        .form-home:focus {
+            background-color: white;
+            padding-left: 5px;
+            padding-right: 5px;
+            height: 39px;
+        }
+    </style>
 
     <!-- SweetAlert2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -120,38 +140,77 @@
                     </div>
                     <div class="tp-caption tp-resizeme caption-form"
                          data-frames='[{"delay":1000,"speed":500,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                         data-x="center" data-y="bottom" data-voffset="['293','93', '73', '78', '73']"
+                         data-x="center" data-y="bottom" data-voffset="['153','93', '73', '78', '73']"
                          data-lineheight="inherit" data-width="['991', '991', '891', '991', '991']"
                          data-visibility='["on", "off", "off", "off", "off"]'>
-
-                        <div class="slideshow-form">
-                            <form method="get" action="Reservation">
-                                <div class="inner">
+                        <form action="Reservation" method="get">
+                            <div class="row">
+                                <div class="col-md-6">
                                     <div class="form-holder">
-                                        <select class="form-control" name="seat_number">
+                                        <label class="text-white">Seat(s)</label>
+                                        <select class="form-control form-home" name="seat_number" required>
                                             <?php
                                             for ($i = 1; $i < 21; $i++) {
                                                 ?>
-                                                <option value="<?php echo $i; ?>"><?php echo $i.' Seat(s)' ?></option>
+                                                <option value="<?php echo $i; ?>"><?php echo $i . ' Seat(s)' ?></option>
                                                 <?php
                                             }
                                             ?>
                                         </select>
-                                        <span class="lnr lnr-chevron-down"></span>
+                                        <span class="lnr lnr-chevron-down" style="padding-right: 5px"></span>
                                     </div>
-                                    <div class="form-holder">
-                                        <input type="date" class="form-control" data-language='en'
-                                               data-date-format="dd - mm - yyyy" placeholder="Date" name="date">
-                                    </div>
-                                    <div class="form-holder">
-                                        <input type="time" class="form-control" placeholder="Time" name="time">
-                                    </div>
-                                    <button class="au-btn tp-resizeme" data-fontsize="['18', '18', '18', '18', '18']" name="submit">
-                                        Continue
-                                    </button>
                                 </div>
-                            </form>
-                        </div>
+                                <div class="col-md-6">
+                                    <div class="form-holder">
+                                        <label class="text-white">Date</label>
+                                        <input type="text" class="form-control form-home" data-language='en'
+                                               data-date-format="dd - mm - yyyy" placeholder="Today" name="date"
+                                               min="<?php echo date("Y-m-d"); ?>" onfocus="(this.type = 'date')" id="date-1" required/>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="form-holder">
+                                        <label class="text-white">Product</label>
+                                        <select class="form-control form-home" name="food" id="food_name-1"
+                                                onchange="setFoodPrice(this.value,'1');" required>
+                                            <option value="">Select Product</option>
+                                            <?php
+                                            $order_data = $db_handle->runQuery("SELECT * FROM `tblproduct`");
+                                            for ($i = 0; $i < count($order_data); $i++) {
+                                                ?>
+                                                <option value="<?php echo $order_data[$i]['id']; ?>"><?php echo $order_data[$i]['name']; ?></option>
+                                                <?php
+                                            }
+                                            ?>
+                                        </select>
+                                        <span class="lnr lnr-chevron-down" style="padding-right: 5px"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-holder">
+                                        <label class="text-white">Time and Price</label>
+                                        <select class="form-control form-home" name="price" id="food_price-1" required>
+                                            <option value=""></option>
+                                        </select>
+                                        <span class="lnr lnr-chevron-down" style="padding-right: 5px"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-12">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <button class="au-btn tp-resizeme"
+                                                data-fontsize="['18', '18', '18', '18', '18']"
+                                                name="submit" style="background-color: #cca97b">
+                                            Continue
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                     <div class="tp-caption tp-resizeme caption-pointer"
                          data-frames='[{"delay":0,"speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
@@ -198,40 +257,77 @@
                     </div>
                     <div class="tp-caption tp-resizeme caption-form"
                          data-frames='[{"delay":1000,"speed":500,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                         data-x="center" data-y="bottom" data-voffset="['293','93', '73', '78', '73']"
+                         data-x="center" data-y="bottom" data-voffset="['153','93', '73', '78', '73']"
                          data-lineheight="inherit" data-width="['991', '991', '891', '991', '991']"
                          data-visibility='["on", "off", "off", "off", "off"]'>
-
-                        <div class="slideshow-form">
-                            <form method="get" action="Reservation">
-                                <div class="inner">
+                        <form action="Reservation" method="get">
+                            <div class="row">
+                                <div class="col-md-6">
                                     <div class="form-holder">
-                                        <select class="form-control" name="seat_number">
+                                        <label class="text-white">Seat(s)</label>
+                                        <select class="form-control form-home" name="seat_number" required>
                                             <?php
                                             for ($i = 1; $i < 21; $i++) {
                                                 ?>
-                                                <option value="<?php echo $i; ?>"><?php echo $i.' Seat(s)' ?></option>
+                                                <option value="<?php echo $i; ?>"><?php echo $i . ' Seat(s)' ?></option>
                                                 <?php
                                             }
                                             ?>
                                         </select>
-                                        <span class="lnr lnr-chevron-down"></span>
+                                        <span class="lnr lnr-chevron-down" style="padding-right: 5px"></span>
                                     </div>
-                                    <div class="form-holder">
-                                        <input type="text" class="form-control datepicker-here" data-language='en'
-                                               data-date-format="dd - mm - yyyy" placeholder="Date" name="date">
-                                        <span class="lnr lnr-calendar-full big"></span>
-                                    </div>
-                                    <div class="form-holder">
-                                        <input type="text" class="form-control time-picker" placeholder="Time" name="time">
-                                        <span class="lnr lnr-clock big"></span>
-                                    </div>
-                                    <button class="au-btn tp-resizeme" data-fontsize="['18', '18', '18', '18', '18']" name="submit">
-                                        Continue
-                                    </button>
                                 </div>
-                            </form>
-                        </div>
+                                <div class="col-md-6">
+                                    <div class="form-holder">
+                                        <label class="text-white">Date</label>
+                                        <input type="text" class="form-control form-home" data-language='en'
+                                               data-date-format="dd - mm - yyyy" placeholder="Today" name="date"
+                                               min="<?php echo date("Y-m-d"); ?>" onfocus="(this.type = 'date')" id="date-2" required/>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="form-holder">
+                                        <label class="text-white">Product</label>
+                                        <select class="form-control form-home" name="food" id="food_name-2"
+                                                onchange="setFoodPrice(this.value,'2');" required>
+                                            <option value="">Select Product</option>
+                                            <?php
+                                            $order_data = $db_handle->runQuery("SELECT * FROM `tblproduct`");
+                                            for ($i = 0; $i < count($order_data); $i++) {
+                                                ?>
+                                                <option value="<?php echo $order_data[$i]['id']; ?>"><?php echo $order_data[$i]['name']; ?></option>
+                                                <?php
+                                            }
+                                            ?>
+                                        </select>
+                                        <span class="lnr lnr-chevron-down" style="padding-right: 5px"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-holder">
+                                        <label class="text-white">Time and Price</label>
+                                        <select class="form-control form-home" name="price" id="food_price-2" required>
+                                            <option value=""></option>
+                                        </select>
+                                        <span class="lnr lnr-chevron-down" style="padding-right: 5px"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-12">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <button class="au-btn tp-resizeme"
+                                                data-fontsize="['18', '18', '18', '18', '18']"
+                                                name="submit" style="background-color: #cca97b">
+                                            Continue
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                     <div class="tp-caption tp-resizeme caption-pointer"
                          data-frames='[{"delay":0,"speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
@@ -278,40 +374,78 @@
                     </div>
                     <div class="tp-caption tp-resizeme caption-form"
                          data-frames='[{"delay":1000,"speed":500,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                         data-x="center" data-y="bottom" data-voffset="['293','93', '73', '78', '73']"
+                         data-x="center" data-y="bottom" data-voffset="['153','93', '73', '78', '73']"
                          data-lineheight="inherit" data-width="['991', '991', '891', '991', '991']"
                          data-visibility='["on", "off", "off", "off", "off"]'>
 
-                        <div class="slideshow-form">
-                            <form method="get" action="Reservation">
-                                <div class="inner">
+                        <form action="Reservation" method="get">
+                            <div class="row">
+                                <div class="col-md-6">
                                     <div class="form-holder">
-                                        <select class="form-control" name="seat_number">
+                                        <label class="text-white">Seat(s)</label>
+                                        <select class="form-control form-home" name="seat_number" required>
                                             <?php
                                             for ($i = 1; $i < 21; $i++) {
                                                 ?>
-                                                <option value="<?php echo $i; ?>"><?php echo $i.' Seat(s)' ?></option>
+                                                <option value="<?php echo $i; ?>"><?php echo $i . ' Seat(s)' ?></option>
                                                 <?php
                                             }
                                             ?>
                                         </select>
-                                        <span class="lnr lnr-chevron-down"></span>
+                                        <span class="lnr lnr-chevron-down" style="padding-right: 5px"></span>
                                     </div>
-                                    <div class="form-holder">
-                                        <input type="text" class="form-control datepicker-here" data-language='en'
-                                               data-date-format="dd - mm - yyyy" placeholder="Date" name="date">
-                                        <span class="lnr lnr-calendar-full big"></span>
-                                    </div>
-                                    <div class="form-holder">
-                                        <input type="text" class="form-control time-picker" placeholder="Time" name="time">
-                                        <span class="lnr lnr-clock big"></span>
-                                    </div>
-                                    <button class="au-btn tp-resizeme" data-fontsize="['18', '18', '18', '18', '18']" name="submit">
-                                        Continue
-                                    </button>
                                 </div>
-                            </form>
-                        </div>
+                                <div class="col-md-6">
+                                    <div class="form-holder">
+                                        <label class="text-white">Date</label>
+                                        <input type="text" class="form-control form-home" data-language='en'
+                                               data-date-format="dd - mm - yyyy" placeholder="Today" name="date"
+                                               min="<?php echo date("Y-m-d"); ?>" onfocus="(this.type = 'date')" id="date-3" required/>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="form-holder">
+                                        <label class="text-white">Product</label>
+                                        <select class="form-control form-home" name="food" id="food_name-3"
+                                                onchange="setFoodPrice(this.value,'3');" required>
+                                            <option value="">Select Product</option>
+                                            <?php
+                                            $order_data = $db_handle->runQuery("SELECT * FROM `tblproduct`");
+                                            for ($i = 0; $i < count($order_data); $i++) {
+                                                ?>
+                                                <option value="<?php echo $order_data[$i]['id']; ?>"><?php echo $order_data[$i]['name']; ?></option>
+                                                <?php
+                                            }
+                                            ?>
+                                        </select>
+                                        <span class="lnr lnr-chevron-down" style="padding-right: 5px"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-holder">
+                                        <label class="text-white">Time and Price</label>
+                                        <select class="form-control form-home" name="price" id="food_price-3" required>
+                                            <option value=""></option>
+                                        </select>
+                                        <span class="lnr lnr-chevron-down" style="padding-right: 5px"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-12">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <button class="au-btn tp-resizeme"
+                                                data-fontsize="['18', '18', '18', '18', '18']"
+                                                name="submit" style="background-color: #cca97b">
+                                            Continue
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                     <div class="tp-caption tp-resizeme caption-pointer"
                          data-frames='[{"delay":0,"speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
@@ -345,30 +479,74 @@
     <div class="slideshow-form on-mobile">
         <div class="container">
             <form method="get" action="Reservation">
-                <div class="inner">
-                    <div class="form-holder">
-                        <select class="form-control" name="seat_number">
-                            <?php
-                            for ($i = 1; $i < 21; $i++) {
-                                ?>
-                                <option value="<?php echo $i; ?>"><?php echo $i.' Seat(s)' ?></option>
-                                <?php
-                            }
-                            ?>
-                        </select>
-                        <span class="lnr lnr-chevron-down"></span>
+                <form action="Reservation" method="get">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-holder">
+                                <label class="text-white">Seat(s)</label>
+                                <select class="form-control form-home" name="seat_number" required>
+                                    <?php
+                                    for ($i = 1; $i < 21; $i++) {
+                                        ?>
+                                        <option value="<?php echo $i; ?>"><?php echo $i . ' Seat(s)' ?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
+                                <span class="lnr lnr-chevron-down" style="padding-right: 5px"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-holder">
+                                <label class="text-white">Date</label>
+                                <input type="text" class="form-control form-home" data-language='en'
+                                       data-date-format="dd - mm - yyyy" placeholder="Today" name="date"
+                                       min="<?php echo date("Y-m-d"); ?>" onfocus="(this.type = 'date')" id="date-4" required/>
+
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-holder">
-                        <input type="text" class="form-control datepicker-here" data-language='en'
-                               data-date-format="dd - mm - yyyy" placeholder="Date" name="date">
-                        <span class="lnr lnr-calendar-full big"></span>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <div class="form-holder">
+                                <label class="text-white">Product</label>
+                                <select class="form-control form-home" name="food" id="food_name-4"
+                                        onchange="setFoodPrice(this.value,'4');" required>
+                                    <option value="">Select Product</option>
+                                    <?php
+                                    $order_data = $db_handle->runQuery("SELECT * FROM `tblproduct`");
+                                    for ($i = 0; $i < count($order_data); $i++) {
+                                        ?>
+                                        <option value="<?php echo $order_data[$i]['id']; ?>"><?php echo $order_data[$i]['name']; ?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
+                                <span class="lnr lnr-chevron-down" style="padding-right: 5px"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-holder">
+                                <label class="text-white">Time and Price</label>
+                                <select class="form-control form-home" name="price" id="food_price-4" required>
+                                    <option value=""></option>
+                                </select>
+                                <span class="lnr lnr-chevron-down" style="padding-right: 5px"></span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-holder">
-                        <input type="text" class="form-control time-picker" placeholder="Time" name="time">
-                        <span class="lnr lnr-clock big"></span>
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <button class="au-btn tp-resizeme"
+                                        data-fontsize="['18', '18', '18', '18', '18']"
+                                        name="submit" style="background-color: #cca97b">
+                                    Continue
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <button class="au-btn tp-resizeme" data-fontsize="['18', '18', '18', '18', '18']" name="submit">Book now</button>
-                </div>
+                </form>
             </form>
         </div>
     </div>
@@ -414,5 +592,22 @@
 
 <script src="vendor/jquery-timepicker-master/jquery.timepicker.min.js"></script>
 <script src="js/main.min.js"></script>
+
+<script>
+    function setFoodPrice(value, id) {
+        let date = $('#date-' + id).val();
+
+        $.ajax({
+            type: 'post',
+            url: 'getProductPriceTime.php',
+            data: {
+                product_id: value, date: date
+            },
+            success: function (data) {
+                $('#food_price-' + id).html(data);
+            }
+        });
+    }
+</script>
 </body>
 </html>
