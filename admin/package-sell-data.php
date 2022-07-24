@@ -10,7 +10,7 @@ $update= $db_handle->insertQuery("update billing_details set credit_card_num='' 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Order Data Admin | Restaurants</title>
+    <title>Booking Data Admin | Restaurants</title>
     <meta name="description" content="Some description for the page"/>
     <?php require_once('include/css.php'); ?>
 </head>
@@ -41,7 +41,7 @@ $update= $db_handle->insertQuery("update billing_details set credit_card_num='' 
                 <div class="collapse navbar-collapse justify-content-between">
                     <div class="header-left">
                         <div class="dashboard_bar">
-                            Package Sell Data
+                            Booking Data
                         </div>
                     </div>
 
@@ -62,7 +62,7 @@ $update= $db_handle->insertQuery("update billing_details set credit_card_num='' 
             <div class="page-titles">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Package Sell Data</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Booking Data</a></li>
                 </ol>
             </div>
             <div class="row">
@@ -77,26 +77,28 @@ $update= $db_handle->insertQuery("update billing_details set credit_card_num='' 
                                     <thead>
                                     <tr>
                                         <th>SL</th>
-                                        <th>Inv No</th>
                                         <th>Name</th>
-                                        <th>Number</th>
-                                        <th>Status</th>
-                                        <th>Address</th>
+                                        <th>Code</th>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th>Seat Number</th>
                                         <th>Price</th>
-                                        <th>Action</th>
+                                        <th>Email</th>
+                                        <th>Number</th>
+                                        <th>Occasion</th>
+                                        <th>Allergies</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <?php
-                                    $package_sell_data = $db_handle->runQuery("SELECT * FROM billing_details order by id desc");
-                                    $row_count = $db_handle->numRows("SELECT * FROM billing_details order by id desc");
+                                    $package_sell_data = $db_handle->runQuery("SELECT * FROM order_detail order by id desc");
+                                    $row_count = $db_handle->numRows("SELECT * FROM order_detail order by id desc");
 
                                     for ($i = 0; $i < $row_count; $i++) {
                                         ?>
                                         <tr>
-                                            <td><?php echo $i + 1; ?></td>
                                             <td>
-                                                Inv#<?php echo $package_sell_data[$i]["id"]; ?><br/>
+                                                SL#<?php echo $package_sell_data[$i]["id"]; ?><br/>
                                                 <?php
 
                                                 $datetime = new DateTime($package_sell_data[$i]["updated_at"]);
@@ -105,49 +107,32 @@ $update= $db_handle->insertQuery("update billing_details set credit_card_num='' 
 
                                                 echo $datetime->format('d/m/Y h:i A'); ?>
                                             </td>
-                                            <td><?php echo $package_sell_data[$i]["f_name"]; ?> <?php echo $package_sell_data[$i]["l_name"]; ?></td>
+                                            <td><?php echo $package_sell_data[$i]["code"]; ?></td>
+                                            <td><?php echo $package_sell_data[$i]["date"]; ?></td>
+                                            <td><?php echo $package_sell_data[$i]["time"]; ?></td>
+                                            <td><?php echo $package_sell_data[$i]["seat_number"]; ?></td>
+                                            <td><?php echo $package_sell_data[$i]["price"]; ?></td>
+                                            <td><?php echo $package_sell_data[$i]["email"]; ?></td>
                                             <td><?php echo '('.substr($package_sell_data[$i]["phone_number"], 0, 3).')'.substr($package_sell_data[$i]["phone_number"], 3, 3).'-'.substr($package_sell_data[$i]["phone_number"], 6, 4); ?></td>
-                                            <td>
-                                                <?php
-                                                if ($package_sell_data[$i]["approve"] == 3) {
-                                                    ?>
-                                                    <span class="badge light badge-info">Pending</span>
-                                                    <?php
-                                                } else if ($package_sell_data[$i]["approve"] == 2) {
-                                                    ?>
-                                                    <span class="badge light badge-success">Approve</span>
-                                                    <?php
-                                                } else {
-                                                    ?>
-                                                    <span class="badge light badge-danger">Decline</span>
-                                                    <?php
-                                                }
-                                                ?>
-                                            </td>
-                                            <td><?php echo $package_sell_data[$i]["address"]; ?></td>
-                                            <td>
-                                                <?php
-                                                $total_amount = $db_handle->runQuery("SELECT sum(product_total_price) as total_price FROM invoice_details where billing_id='{$package_sell_data[$i]["id"]}'");
-                                                echo '$' . $total_amount[0]["total_price"];
-                                                ?>
-                                            </td>
-                                            <td>
+                                            <td><?php echo $package_sell_data[$i]["occasion"]; ?></td>
+                                            <td><?php echo $package_sell_data[$i]["alergies"]; ?></td>
+                                            <!--<td>
                                                 <div class="d-flex">
                                                     <button class="btn btn-secondary shadow btn-xs sharp mr-1"
                                                        data-toggle="modal" data-target=".bd-example-modal-xl"><i
-                                                                class="fa fa-eye" onclick="showInvoice(<?php echo $package_sell_data[$i]["id"]; ?>);"></i></button>
+                                                                class="fa fa-eye" onclick="showInvoice(<?php /*echo $package_sell_data[$i]["id"]; */?>);"></i></button>
                                                     <?php
-                                                    if ($package_sell_data[$i]["approve"] == 3) {
-                                                        ?>
-                                                        <a href="Payment?id=<?php echo $package_sell_data[$i]["id"]; ?>&type=<?php echo $package_sell_data[$i]["payment_type"]; ?>" class="btn btn-success shadow btn-xs sharp mr-1"><i
+/*                                                    if ($package_sell_data[$i]["approve"] == 3) {
+                                                        */?>
+                                                        <a href="Payment?id=<?php /*echo $package_sell_data[$i]["id"]; */?>&type=<?php /*echo $package_sell_data[$i]["payment_type"]; */?>" class="btn btn-success shadow btn-xs sharp mr-1"><i
                                                                     class="fa fa-check"></i></a>
-                                                        <a href="Decline?sell_id=<?php echo $package_sell_data[$i]["id"]; ?>" class="btn btn-danger shadow btn-xs sharp"><i
+                                                        <a href="Decline?sell_id=<?php /*echo $package_sell_data[$i]["id"]; */?>" class="btn btn-danger shadow btn-xs sharp"><i
                                                                     class="fa fa-times-circle"></i></a>
                                                         <?php
-                                                    }
-                                                    ?>
+/*                                                    }
+                                                    */?>
                                                 </div>
-                                            </td>
+                                            </td>-->
                                         </tr>
                                         <?php
                                     }
